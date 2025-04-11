@@ -1,248 +1,107 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WEB AL FAAN</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('https://files.catbox.moe/kq3wra.jpg'); /* Ganti dengan path gambar latar belakang */
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
-        }
-        .container {
-            background-color: rgba(0, 0, 0, 0.5); /* Gelap dengan transparansi untuk efek lebih elegan */
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-        }
-        h1 {
-            color: #fff;
-            font-size: 2em;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-        .payment-methods {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .payment-methods li {
-            background-color: rgba(255, 255, 255, 0.1); /* Transparansi lebih lembut */
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        .payment-methods li h3 {
-            margin: 0;
-            color: #f1c40f; /* Warna emas untuk judul */
-            font-size: 1.2em;
-        }
-        .payment-methods li p {
-            margin: 5px 0;
-            color: #ecf0f1; /* Teks abu-abu terang */
-        }
-        .copy-btn {
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-        .copy-btn:hover {
-            background-color: #2980b9;
-        }
-        .qr-code {
-            margin-top: 20px;
-        }
-        .note {
-            margin-top: 30px;
-            font-size: 16px;
-            color: #e74c3c;
-        }
-        .note strong {
-            font-weight: bold;
-        }
-        .notification {
-            margin-top: 15px;
-            font-size: 16px;
-            color: #2ecc71;
-            font-weight: bold;
-            display: none;
-        }
-                .scrolling-text {
-    position: absolute;
-    top: 10px; /* Jarak dari atas */
-    left: 0;
-    font-size: 1.2em; /* Ukuran font lebih kecil */
-    font-weight: bold;
-    text-transform: uppercase;
-    color: ##2ecc71; /* Warna teks putih */
-    letter-spacing: 3px;
-    animation: scrollText 20s linear infinite; /* Durasi animasi diperpanjang agar teks lebih santai */
-    transform-style: preserve-3d;
-    perspective: 500px;
-    padding: 5px 10px; /* Memberikan ruang di sekitar teks */
-    border-radius: 5px; /* Membulatkan sudut */
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.100); /* Bayangan teks untuk efek cahaya */
-    white-space: nowrap; /* Tidak membungkus teks ke baris baru */
-    display: inline-block; /* Membuat elemen teks tidak meluas dan lebih terkendali */
-}
-
-/* Animasi bergerak dari kiri ke kanan */
-@keyframes scrollText {
-    0% {
-        transform: translateX(-100%); /* Mulai dari luar layar di kiri */
-    }
-    100% {
-        transform: translateX(100%); /* Bergerak hingga keluar layar di kanan */
-    }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1>ALL PAYMENT ALFAAN STORE</h1>
-    <ul class="payment-methods">
-        <li>
-            <h3>💳 DANA</h3>
-            <p id="dana-number">Nomor: 082281704226</p>
-            <button class="copy-btn" onclick="copyToClipboard('#dana-number', 'DANA')">Salin Nomor</button>
-            <div id="dana-notification" class="notification">Nomor DANA sudah disalin!</div>
-        </li>
-        <li>
-            <h3>💳 OVO</h3>
-            <p id="ovo-number">Nomor: 082281704226</p>
-            <button class="copy-btn" onclick="copyToClipboard('#ovo-number', 'OVO')">Salin Nomor</button>
-            <div id="ovo-notification" class="notification">Nomor OVO sudah disalin!</div>
-        </li>
-        <li>
-            <h3>💳 GOPAY</h3>
-            <p id="gopay-number">Nomor: 082281704226</p>
-            <button class="copy-btn" onclick="copyToClipboard('#gopay-number', 'GOPAY')">Salin Nomor</button>
-            <div id="gopay-notification" class="notification">Nomor GOPAY sudah disalin!</div>
-        </li>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Zoom Gambar</title>
+    <title>Payment Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
+            padding: 0;
+            background-color: #f5f5f5;
         }
-
-        .image-container {
-            position: relative;
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
-        .zoom-image {
-            max-width: 60%;
-            height: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .payment-method {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .payment-method span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .copy-button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 5px;
         }
-
-        .zoom-image.zoomed {
-            transform: scale(2); /* Perbesar gambar */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.0); /* Tambahkan bayangan */
-            z-index: 1000;
+        .copy-button:hover {
+            background-color: #0056b3;
         }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0);
-            z-index: 999;
+        .note {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffeeba;
+            border: 1px solid #ffeeba;
+            border-radius: 6px;
+            color: #856404;
+            font-size: 14px;
         }
-
-        .overlay.active {
-            display: block;
+        .qris img {
+            max-width: 100%;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://files.catbox.moe/2ppy45.jpg" alt="Gambar QRIS" class="zoom-image" id="zoomable-image">
+    <div class="container">
+        <h1>Payment Information</h1>
+        
+        <div class="payment-method">
+            <span>💳 DANA: 082281704226</span>
+            <button class="copy-button" onclick="copyText('082281704226')">Salin</button>
+        </div>
+        
+        <div class="payment-method">
+            <span>💳 GOPAY: 082281704226</span>
+            <button class="copy-button" onclick="copyText('082281704226')">Salin</button>
+        </div>
+        
+        <div class="payment-method">
+            <span>💳 OVO: 082281704226</span>
+            <button class="copy-button" onclick="copyText('082281704226')">Salin</button>
+        </div>
+        
+        <div class="payment-method qris">
+            <span>💳 QRIS:</span>
+            <a href="https://files.catbox.moe/2ppy45.jpg" target="_blank">
+                <img src="https://files.catbox.moe/2ppy45.jpg" alt="QRIS - Klik untuk memperbesar">
+            </a>
+        </div>
+        
+        <div class="note">
+            📝 NOTE: WAJIB KIRIM BUKTI PAYMENT
+        </div>
     </div>
-    <div class="overlay" id="overlay"></div>
 
     <script>
-        // Ambil elemen gambar dan overlay
-        const image = document.getElementById('zoomable-image');
-        const overlay = document.getElementById('overlay');
-
-        // Tambahkan event listener untuk memperbesar gambar
-        image.addEventListener('click', () => {
-            // Toggle zoom
-            image.classList.toggle('zoomed');
-            overlay.classList.toggle('active');
-        });
-
-        // Tambahkan event listener untuk overlay (klik di luar gambar untuk keluar zoom)
-        overlay.addEventListener('click', () => {
-            image.classList.remove('zoomed');
-            overlay.classList.remove('active');
-        });
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Nomor berhasil disalin: " + text);
+            }).catch(err => {
+                alert("Gagal menyalin teks: " + err);
+            });
+        }
     </script>
-</body>
-</html>        </li>
-    </ul>
-        <div class="scrolling-text">Pembuat Web: ALVIN STORE NO 083106133182</div>
-    <div class="note">
-        <p><strong>NOTE: WAJIB SERTAKAN BUKTI TRANSFER</strong></p>
-    </div>
-</div>
-
-<script>
-    function copyToClipboard(id, paymentMethod) {
-        const element = document.querySelector(id);
-        const text = element.textContent || element.innerText;
-        const textArea = document.createElement("textarea");
-        textArea.value = text.replace('Nomor: ', '').trim(); // Hapus 'Nomor: ' dari teks
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
-
-        // Menampilkan notifikasi yang sesuai dengan metode pembayaran
-        const notification = document.getElementById(paymentMethod.toLowerCase() + '-notification');
-        notification.style.display = 'block';
-
-        // Menyembunyikan notifikasi setelah 3 detik
-        setTimeout(function() {
-            notification.style.display = 'none';
-        }, 3000);
-    }
-</script>
-
 </body>
 </html>
