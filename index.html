@@ -140,10 +140,81 @@
             <button class="copy-btn" onclick="copyToClipboard('#gopay-number', 'GOPAY')">Salin Nomor</button>
             <div id="gopay-notification" class="notification">Nomor GOPAY sudah disalin!</div>
         </li>
-        <li class="qr-code">
-            <h3>💳 QRIS</h3>
-            <img src="https://files.catbox.moe/2ppy45.jpg" alt="QRIS" style="max-width: 60%; border-radius: 8px;">
-        </li>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zoom Gambar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .zoom-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .zoom-image.zoomed {
+            transform: scale(2); /* Perbesar gambar */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan */
+            z-index: 1000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://files.catbox.moe/2ppy45.jpg" alt="Gambar QRIS" class="zoom-image" id="zoomable-image">
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // Ambil elemen gambar dan overlay
+        const image = document.getElementById('zoomable-image');
+        const overlay = document.getElementById('overlay');
+
+        // Tambahkan event listener untuk memperbesar gambar
+        image.addEventListener('click', () => {
+            // Toggle zoom
+            image.classList.toggle('zoomed');
+            overlay.classList.toggle('active');
+        });
+
+        // Tambahkan event listener untuk overlay (klik di luar gambar untuk keluar zoom)
+        overlay.addEventListener('click', () => {
+            image.classList.remove('zoomed');
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>        </li>
     </ul>
         <div class="scrolling-text">Pembuat Web: ALFAAN STORE NO 082281704226</div>
     <div class="note">
