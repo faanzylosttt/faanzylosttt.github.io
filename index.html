@@ -1,110 +1,164 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAYMENT FAANZY</title>
+    <title>PAYMENT ALFAAN</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        .marquee {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            box-sizing: border-box;
-            background: #000;
-            color: #fff;
-            padding: 10px 0;
-        }
-        .marquee span {
-            display: inline-block;
-            animation: marquee 10s linear infinite;
-        }
-        @keyframes marquee {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
-        .button {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-        .qris-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .qris-buttons a {
-            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            background: url('https://files.catbox.moe/kq3wra.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: white;
         }
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: gray;
+        .overlay {
+            background: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .dropdown-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .menu-icon span {
+            display: block;
+            height: 4px;
+            background: white;
+            margin: 6px 0;
+            border-radius: 2px;
+            width: 30px;
         }
     </style>
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Sudah disalin: ' + text);
-            });
-        }
-    </script>
 </head>
 <body>
-    <div class="marquee">
-        <span>FAANZY HOSTING ALL KEBUTUHAN</span>
-    </div>
+    <div class="overlay">
+        <div class="container">
+            <!-- Menu Icon -->
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-    <h1>PAYMENT FAANZY</h1>
+            <!-- Dropdown Menu -->
+            <div id="dropdown-menu" class="dropdown-menu">
+                <a href="#" onclick="alert('Menu 1 dipilih')">Menu 1</a>
+                <a href="#" onclick="alert('Menu 2 dipilih')">Menu 2</a>
+                <a href="#" onclick="alert('Menu 3 dipilih')">Menu 3</a>
+            </div>
 
-    <div>
-        <p>DANA💳</p>
-        <button class="button" onclick="copyToClipboard('082281704226')">Salin DANA</button>
-    </div>
+            <h1>PAYMENT ALFAAN</h1>
+            
+            <div class="payment-method" onclick="copyText('082281704226')">
+                <span>💳 DANA: 082281704226</span>
+            </div>
+            
+            <div class="payment-method" onclick="copyText('082281704226')">
+                <span>💳 GOPAY: 082281704226</span>
+            </div>
+            
+            <div class="payment-method" onclick="copyText('082281704226')">
+                <span>💳 OVO: 082281704226</span>
+            </div>
+            
+            <button class="show-qris-button" onclick="toggleQRIS()">Tampilkan QRIS</button>
 
-    <div>
-        <p>GOPAY💳</p>
-        <button class="button" onclick="copyToClipboard('082281704226')">Salin GOPAY</button>
-    </div>
+            <div id="qris-container" class="qris-container">
+                <div class="qris">
+                    <a href="https://files.catbox.moe/2ppy45.jpg" target="_blank">
+                        <img src="https://files.catbox.moe/2ppy45.jpg" alt="QRIS - Klik untuk memperbesar">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer">
+                PEMBUAT WEB: <span>AL FAANZY HOSTING</span> <br>
+                <a href="tel:082281704226">082281704226</a>
+            </div>
 
-    <div>
-        <p>OVO💳</p>
-        <button class="button" onclick="copyToClipboard('082281704226')">Salin OVO</button>
-    </div>
-
-    <div>
-        <p>QRIS💳</p>
-        <img src="https://files.catbox.moe/2ppy45.jpg" alt="QRIS" style="width:200px; height:auto;">
-        <div class="qris-buttons">
-            <a href="https://files.catbox.moe/2ppy45.jpg" download>
-                <button class="button">Download QRIS PNG</button>
-            </a>
-            <button class="button" onclick="window.open('https://files.catbox.moe/2ppy45.jpg', '_blank')">Zoom QRIS</button>
+            <div class="warning-text">
+                JANGAN LUPA UNTUK KIRIM BUKTI TRANSFER
+            </div>
         </div>
     </div>
 
-    <p><strong>TOLONG KIRIM BUKTI TRANSFER</strong></p>
+    <div id="notification" class="notification">
+        ✔ Nomor berhasil disalin!
+    </div>
 
-    <footer>
-        <p>FAANZY HOSTING CONTACT 082281704226</p>
-    </footer>
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification();
+            }).catch(err => {
+                alert("Gagal menyalin teks: " + err);
+            });
+        }
+
+        function toggleQRIS() {
+            const qrisContainer = document.getElementById('qris-container');
+            if (qrisContainer.style.display === 'none' || qrisContainer.style.display === '') {
+                qrisContainer.style.display = 'block';
+            } else {
+                qrisContainer.style.display = 'none';
+            }
+        }
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); // Notifikasi hilang setelah 3 detik
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
