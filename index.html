@@ -1,107 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Page</title>
+    <title>PAYMENT FAANZY</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
             text-align: center;
-            color: #333;
+            margin: 20px;
         }
-        .payment-method {
-            margin: 20px 0;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background-color: #fafafa;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            background: #000;
+            color: #fff;
+            padding: 10px 0;
         }
-        .payment-method span {
-            font-size: 16px;
-            font-weight: bold;
+        .marquee span {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
         }
-        .copy-button {
-            padding: 8px 12px;
-            background-color: #007bff;
-            color: white;
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
             cursor: pointer;
+            border-radius: 5px;
         }
-        .copy-button:hover {
+        .button:hover {
             background-color: #0056b3;
         }
-        .note {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #ffeeba;
-            border: 1px solid #ffeeba;
-            border-radius: 6px;
-            color: #856404;
-            font-size: 14px;
+        .qris-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
-        .qris img {
-            max-width: 100%;
-            border-radius: 8px;
+        .qris-buttons a {
+            text-decoration: none;
+            color: white;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: gray;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Payment Information</h1>
-        
-        <div class="payment-method">
-            <span>💳 DANA: 082281704226</span>
-            <button class="copy-button" onclick="copyText('082281704226')">Salin</button>
-        </div>
-        
-        <div class="payment-method">
-            <span>💳 GOPAY: 082281704226</span>
-            <button class="copy-button" onclick="copyText('082281704226')">Salin</button>
-        </div>
-        
-        <div class="payment-method">
-            <span>💳 OVO: 082281704226</span>
-            <button class="copy-button" onclick="copyText('082281704226')">Salin</button>
-        </div>
-        
-        <div class="payment-method qris">
-            <span>💳 QRIS:</span>
-            <a href="https://files.catbox.moe/2ppy45.jpg" target="_blank">
-                <img src="https://files.catbox.moe/2ppy45.jpg" alt="QRIS - Klik untuk memperbesar">
-            </a>
-        </div>
-        
-        <div class="note">
-            📝 NOTE: WAJIB KIRIM BUKTI PAYMENT
-        </div>
-    </div>
-
     <script>
-        function copyText(text) {
+        function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert("Nomor berhasil disalin: " + text);
-            }).catch(err => {
-                alert("Gagal menyalin teks: " + err);
+                alert('Sudah disalin: ' + text);
             });
         }
     </script>
+</head>
+<body>
+    <div class="marquee">
+        <span>FAANZY HOSTING ALL KEBUTUHAN</span>
+    </div>
+
+    <h1>PAYMENT FAANZY</h1>
+
+    <div>
+        <p>DANA💳</p>
+        <button class="button" onclick="copyToClipboard('082281704226')">Salin DANA</button>
+    </div>
+
+    <div>
+        <p>GOPAY💳</p>
+        <button class="button" onclick="copyToClipboard('082281704226')">Salin GOPAY</button>
+    </div>
+
+    <div>
+        <p>OVO💳</p>
+        <button class="button" onclick="copyToClipboard('082281704226')">Salin OVO</button>
+    </div>
+
+    <div>
+        <p>QRIS💳</p>
+        <img src="https://files.catbox.moe/2ppy45.jpg" alt="QRIS" style="width:200px; height:auto;">
+        <div class="qris-buttons">
+            <a href="https://files.catbox.moe/2ppy45.jpg" download>
+                <button class="button">Download QRIS PNG</button>
+            </a>
+            <button class="button" onclick="window.open('https://files.catbox.moe/2ppy45.jpg', '_blank')">Zoom QRIS</button>
+        </div>
+    </div>
+
+    <p><strong>TOLONG KIRIM BUKTI TRANSFER</strong></p>
+
+    <footer>
+        <p>FAANZY HOSTING CONTACT 082281704226</p>
+    </footer>
 </body>
 </html>
