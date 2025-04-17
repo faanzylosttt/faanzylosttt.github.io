@@ -3,149 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Gateway - NicoHosting</title>
+    <title>Pembayaran NICOHOST</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: white;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #f5f5f5;
+            color: #333;
         }
         .header {
             text-align: center;
             margin-bottom: 20px;
         }
-        .header img {
-            height: 50px;
-        }
-        .invoice-box {
-            border: 1px solid #ddd;
+        .payment-container {
+            background-color: white;
+            border-radius: 10px;
             padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
-            border-radius: 5px;
         }
-        .invoice-details {
-            display: flex;
-            justify-content: space-between;
+        .qris-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .account-number {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
             margin-bottom: 15px;
         }
-        .payment-methods {
-            margin-top: 20px;
-        }
-        .method {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border: 1px solid #eee;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .method:hover {
-            background-color: #f9f9f9;
-        }
-        .method img {
-            width: 50px;
-            margin-right: 15px;
-        }
-        .btn-pay {
+        .copy-btn {
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 20px 0;
-            cursor: pointer;
+            padding: 8px 15px;
             border-radius: 5px;
-            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
         }
-        .btn-pay:hover {
+        .copy-btn:hover {
             background-color: #45a049;
+        }
+        .success-message {
+            color: #4CAF50;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
         }
         .footer {
             text-align: center;
-            margin-top: 20px;
-            color: #777;
+            margin-top: 30px;
             font-size: 12px;
+            color: #666;
+        }
+        .payment-link {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .package-list {
+            margin: 20px 0;
+        }
+        .package-list li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="https://nicohosting.my.id/assets/images/logo.png" alt="NicoHosting Logo">
-            <h2>Payment Gateway</h2>
+    <div class="header">
+        <h1>Pembayaran NICOHOST</h1>
+        <a href="payment-nico.nicohosting.my.id/PAYMENT" class="payment-link">payment-nico.nicohosting.my.id/PAYMENT</a>
+    </div>
+
+    <div class="payment-container">
+        <div class="qris-section">
+            <h3>Zoom QRIS</h3>
+            <button class="copy-btn">Download QRIS</button>
         </div>
-        
-        <div class="invoice-box">
-            <h3>Invoice #INV123456</h3>
-            <div class="invoice-details">
-                <div>
-                    <p><strong>Product:</strong> Premium Hosting</p>
-                    <p><strong>Billing Cycle:</strong> Monthly</p>
-                    <p><strong>Due Date:</strong> 30 June 2023</p>
-                </div>
-                <div>
-                    <p><strong>Amount Due:</strong></p>
-                    <h2>IDR 99,000</h2>
-                </div>
-            </div>
+
+        <div class="account-number">
+            <p>Nomor: 082142479031</p>
+            <p>Atas Nama: Nico Ardhana</p>
+            <button class="copy-btn">Copy Nomor</button>
         </div>
-        
-        <div class="payment-methods">
-            <h3>Select Payment Method</h3>
-            
-            <div class="method">
-                <img src="https://nicohosting.my.id/assets/images/bca.png" alt="BCA">
-                <div>
-                    <h4>Bank Transfer - BCA</h4>
-                    <p>Transfer to BCA Account: 1234567890</p>
-                </div>
-            </div>
-            
-            <div class="method">
-                <img src="https://nicohosting.my.id/assets/images/mandiri.png" alt="Mandiri">
-                <div>
-                    <h4>Bank Transfer - Mandiri</h4>
-                    <p>Transfer to Mandiri Account: 0987654321</p>
-                </div>
-            </div>
-            
-            <div class="method">
-                <img src="https://nicohosting.my.id/assets/images/gopay.png" alt="Gopay">
-                <div>
-                    <h4>E-Wallet - Gopay</h4>
-                    <p>Send to Gopay: 081234567890</p>
-                </div>
-            </div>
-            
-            <div class="method">
-                <img src="https://nicohosting.my.id/assets/images/ovo.png" alt="OVO">
-                <div>
-                    <h4>E-Wallet - OVO</h4>
-                    <p>Send to OVO: 081234567890</p>
-                </div>
-            </div>
+
+        <div class="account-number">
+            <p>Nomor: 083139895459</p>
+            <p>Atas Nama: Si**A LA****H</p>
+            <button class="copy-btn">Copy Nomor</button>
         </div>
-        
-        <button class="btn-pay">PROCEED TO PAYMENT</button>
-        
-        <div class="footer">
-            <p>© 2023 NicoHosting. All rights reserved.</p>
-            <p>Need help? Contact support@nicohosting.my.id</p>
+
+        <div class="account-number">
+            <p>Nomor: 082142479031</p>
+            <p>Atas Nama: Lanzx GG</p>
+            <button class="copy-btn">Copy Nomor</button>
+        </div>
+
+        <div class="success-message" id="successMsg" style="display: none;">
+            Berhasil!<br>
+            Nomor telah disalin ke clipboard!
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="copy-btn" style="background-color: #2196F3;">KIRIM BUKTI TF KESINI</button>
+            <p style="margin-top: 5px;">Disalin</p>
         </div>
     </div>
+
+    <!-- Alternative version with package list -->
+    <div class="payment-container" style="display: none;" id="packageVersion">
+        <h2 style="text-align: center;">PAYMENT NICOHOST</h2>
+        <p style="text-align: center;">HI GUYS!!! WELCOME TO PAYMENT NICO HOST<br>E-WALLET NICOHOST NICH!!!</p>
+        
+        <div class="package-list">
+            <h3>LIST JASTEB:</h3>
+            <ul>
+                <li>10K 99+ RESULT</li>
+                <li>15K 150+ RESULT</li>
+                <li>20K 200+ RESULT</li>
+                <li>30K 350+ RESULT</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="qris-section">
+            <h3>Scan untuk Pembayaran</h3>
+            <p>Barcode QRIS<br>Scan ini untuk menetima pembayaran dari customer ke toto / kontemu.</p>
+            <p>LANZX STORE</p>
+            <button class="copy-btn">Zoom QRIS</button>
+            <button class="copy-btn">Download QRIS</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2024 Nico Host All Rights Reserved.
+    </div>
+
+    <script>
+        // Simple copy functionality
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const accountDiv = this.parentElement;
+                const accountNumber = accountDiv.querySelector('p').textContent.replace('Nomor: ', '');
+                
+                navigator.clipboard.writeText(accountNumber).then(() => {
+                    const successMsg = document.getElementById('successMsg');
+                    successMsg.style.display = 'block';
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 3000);
+                });
+            });
+        });
+
+        // Uncomment to show the package version
+        // document.getElementById('packageVersion').style.display = 'block';
+    </script>
 </body>
 </html>
