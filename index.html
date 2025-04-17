@@ -3,105 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk Faanzy</title>
+    <title>Payment Gateway - NicoHosting</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .product {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .product-card {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            width: 300px;
-            text-align: center;
-        }
-        .product-card img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        .product-card h3 {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-        .product-card p {
-            font-size: 14px;
-            color: #555;
-        }
-        .product-card .price {
-            font-size: 16px;
-            font-weight: bold;
             color: #333;
         }
-        .product-card button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #007BFF;
-            color: #fff;
-            border: none;
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 50px;
+        }
+        .invoice-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .payment-methods {
+            margin-top: 20px;
+        }
+        .method {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
             border-radius: 5px;
             cursor: pointer;
         }
-        .product-card button:hover {
-            background: #0056b3;
+        .method:hover {
+            background-color: #f9f9f9;
+        }
+        .method img {
+            width: 50px;
+            margin-right: 15px;
+        }
+        .btn-pay {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .btn-pay:hover {
+            background-color: #45a049;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Produk Kami</h1>
-    </header>
     <div class="container">
-        <div class="product">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produk 1">
-                <h3>Produk 1</h3>
-                <p>Deskripsi singkat produk 1.</p>
-                <p class="price">Rp 100.000</p>
-                <a href="https://wa.me/6282281704226?text=Halo%20saya%20tertarik%20untuk%20membeli%20Produk%201" target="_blank">
-                    <button>Beli Sekarang</button>
-                </a>
+        <div class="header">
+            <img src="https://nicohosting.my.id/assets/images/logo.png" alt="NicoHosting Logo">
+            <h2>Payment Gateway</h2>
+        </div>
+        
+        <div class="invoice-box">
+            <h3>Invoice #INV123456</h3>
+            <div class="invoice-details">
+                <div>
+                    <p><strong>Product:</strong> Premium Hosting</p>
+                    <p><strong>Billing Cycle:</strong> Monthly</p>
+                    <p><strong>Due Date:</strong> 30 June 2023</p>
+                </div>
+                <div>
+                    <p><strong>Amount Due:</strong></p>
+                    <h2>IDR 99,000</h2>
+                </div>
             </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produk 2">
-                <h3>Produk 2</h3>
-                <p>Deskripsi singkat produk 2.</p>
-                <p class="price">Rp 150.000</p>
-                <a href="https://wa.me/6282281704226?text=Halo%20saya%20tertarik%20untuk%20membeli%20Produk%202" target="_blank">
-                    <button>Beli Sekarang</button>
-                </a>
+        </div>
+        
+        <div class="payment-methods">
+            <h3>Select Payment Method</h3>
+            
+            <div class="method">
+                <img src="https://nicohosting.my.id/assets/images/bca.png" alt="BCA">
+                <div>
+                    <h4>Bank Transfer - BCA</h4>
+                    <p>Transfer to BCA Account: 1234567890</p>
+                </div>
             </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produk 3">
-                <h3>Produk 3</h3>
-                <p>Deskripsi singkat produk 3.</p>
-                <p class="price">Rp 200.000</p>
-                <a href="https://wa.me/6282281704226?text=Halo%20saya%20tertarik%20untuk%20membeli%20Produk%203" target="_blank">
-                    <button>Beli Sekarang</button>
-                </a>
+            
+            <div class="method">
+                <img src="https://nicohosting.my.id/assets/images/mandiri.png" alt="Mandiri">
+                <div>
+                    <h4>Bank Transfer - Mandiri</h4>
+                    <p>Transfer to Mandiri Account: 0987654321</p>
+                </div>
             </div>
+            
+            <div class="method">
+                <img src="https://nicohosting.my.id/assets/images/gopay.png" alt="Gopay">
+                <div>
+                    <h4>E-Wallet - Gopay</h4>
+                    <p>Send to Gopay: 081234567890</p>
+                </div>
+            </div>
+            
+            <div class="method">
+                <img src="https://nicohosting.my.id/assets/images/ovo.png" alt="OVO">
+                <div>
+                    <h4>E-Wallet - OVO</h4>
+                    <p>Send to OVO: 081234567890</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn-pay">PROCEED TO PAYMENT</button>
+        
+        <div class="footer">
+            <p>© 2023 NicoHosting. All rights reserved.</p>
+            <p>Need help? Contact support@nicohosting.my.id</p>
         </div>
     </div>
 </body>
