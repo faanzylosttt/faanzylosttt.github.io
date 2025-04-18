@@ -24,15 +24,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .menu-container input {
-            margin: 10px 0;
-            padding: 10px;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
         .menu-container button {
+            margin: 10px 0;
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
@@ -48,19 +41,19 @@
 </head>
 <body>
     <div class="menu-container">
-        <h2>Masukkan Password</h2>
-        <input type="password" id="password" placeholder="Masukkan password">
-        <button onclick="checkPassword()">Masuk</button>
+        <h2>Pilih Menu</h2>
+        <button onclick="checkPassword('https://ramadhanmoon.nicohosting.my.id/sewafaanzy1/ultimate', '12345')">Masuk ke Ultimate</button>
+        <button onclick="checkPassword('https://example.com/page2', '67890')">Masuk ke Page 2</button>
+        <button onclick="checkPassword('https://example.com/page3', 'abcde')">Masuk ke Page 3</button>
     </div>
 
     <script>
-        function checkPassword() {
-            const correctPassword = "12345"; // Ganti dengan password yang Anda tentukan
-            const userPassword = document.getElementById('password').value;
+        function checkPassword(url, correctPassword) {
+            const userPassword = prompt("Masukkan password untuk mengakses halaman ini:");
 
             if (userPassword === correctPassword) {
-                alert("Password benar! Anda akan diarahkan ke halaman lain.");
-                window.location.href = "https://ramadhanmoon.nicohosting.my.id/sewafaanzy1/ultimate"; // Ganti dengan URL tujuan
+                alert("Password benar! Anda akan diarahkan ke halaman.");
+                window.location.href = url;
             } else {
                 alert("Password salah! Silakan coba lagi.");
             }
