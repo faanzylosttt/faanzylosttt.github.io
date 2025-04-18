@@ -3,166 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembayaran NICOHOST</title>
+    <title>Web Menu dengan Password</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
         }
-        .header {
+
+        .menu-container {
             text-align: center;
-            margin-bottom: 20px;
-        }
-        .payment-container {
-            background-color: white;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .qris-section {
-            text-align: center;
-            margin: 20px 0;
+
+        .menu-container input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        .account-number {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .copy-btn {
-            background-color: #4CAF50;
+
+        .menu-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
             color: white;
             border: none;
-            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
         }
-        .copy-btn:hover {
-            background-color: #45a049;
-        }
-        .success-message {
-            color: #4CAF50;
-            font-weight: bold;
-            text-align: center;
-            margin: 10px 0;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 12px;
-            color: #666;
-        }
-        .payment-link {
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .package-list {
-            margin: 20px 0;
-        }
-        .package-list li {
-            margin-bottom: 10px;
+
+        .menu-container button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Pembayaran NICOHOST</h1>
-        <a href="payment-nico.nicohosting.my.id/PAYMENT" class="payment-link">payment-nico.nicohosting.my.id/PAYMENT</a>
-    </div>
-
-    <div class="payment-container">
-        <div class="qris-section">
-            <h3>Zoom QRIS</h3>
-            <button class="copy-btn">Download QRIS</button>
-        </div>
-
-        <div class="account-number">
-            <p>Nomor: 082142479031</p>
-            <p>Atas Nama: Nico Ardhana</p>
-            <button class="copy-btn">Copy Nomor</button>
-        </div>
-
-        <div class="account-number">
-            <p>Nomor: 083139895459</p>
-            <p>Atas Nama: Si**A LA****H</p>
-            <button class="copy-btn">Copy Nomor</button>
-        </div>
-
-        <div class="account-number">
-            <p>Nomor: 082142479031</p>
-            <p>Atas Nama: Lanzx GG</p>
-            <button class="copy-btn">Copy Nomor</button>
-        </div>
-
-        <div class="success-message" id="successMsg" style="display: none;">
-            Berhasil!<br>
-            Nomor telah disalin ke clipboard!
-        </div>
-
-        <div style="text-align: center; margin-top: 20px;">
-            <button class="copy-btn" style="background-color: #2196F3;">KIRIM BUKTI TF KESINI</button>
-            <p style="margin-top: 5px;">Disalin</p>
-        </div>
-    </div>
-
-    <!-- Alternative version with package list -->
-    <div class="payment-container" style="display: none;" id="packageVersion">
-        <h2 style="text-align: center;">PAYMENT NICOHOST</h2>
-        <p style="text-align: center;">HI GUYS!!! WELCOME TO PAYMENT NICO HOST<br>E-WALLET NICOHOST NICH!!!</p>
-        
-        <div class="package-list">
-            <h3>LIST JASTEB:</h3>
-            <ul>
-                <li>10K 99+ RESULT</li>
-                <li>15K 150+ RESULT</li>
-                <li>20K 200+ RESULT</li>
-                <li>30K 350+ RESULT</li>
-            </ul>
-        </div>
-
-        <hr>
-
-        <div class="qris-section">
-            <h3>Scan untuk Pembayaran</h3>
-            <p>Barcode QRIS<br>Scan ini untuk menetima pembayaran dari customer ke toto / kontemu.</p>
-            <p>LANZX STORE</p>
-            <button class="copy-btn">Zoom QRIS</button>
-            <button class="copy-btn">Download QRIS</button>
-        </div>
-    </div>
-
-    <div class="footer">
-        © 2024 Nico Host All Rights Reserved.
+    <div class="menu-container">
+        <h2>Masukkan Password</h2>
+        <input type="password" id="password" placeholder="Masukkan password">
+        <button onclick="checkPassword()">Masuk</button>
     </div>
 
     <script>
-        // Simple copy functionality
-        document.querySelectorAll('.copy-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const accountDiv = this.parentElement;
-                const accountNumber = accountDiv.querySelector('p').textContent.replace('Nomor: ', '');
-                
-                navigator.clipboard.writeText(accountNumber).then(() => {
-                    const successMsg = document.getElementById('successMsg');
-                    successMsg.style.display = 'block';
-                    setTimeout(() => {
-                        successMsg.style.display = 'none';
-                    }, 3000);
-                });
-            });
-        });
+        function checkPassword() {
+            const correctPassword = "12345"; // Ganti dengan password yang Anda tentukan
+            const userPassword = document.getElementById('password').value;
 
-        // Uncomment to show the package version
-        // document.getElementById('packageVersion').style.display = 'block';
+            if (userPassword === correctPassword) {
+                alert("Password benar! Anda akan diarahkan ke halaman lain.");
+                window.location.href = "https://ramadhanmoon.nicohosting.my.id/sewafaanzy1/ultimate"; // Ganti dengan URL tujuan
+            } else {
+                alert("Password salah! Silakan coba lagi.");
+            }
+        }
     </script>
 </body>
 </html>
