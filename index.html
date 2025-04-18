@@ -44,21 +44,58 @@
 </head>
 <body>
     <div class="menu-container">
-        <h2>Pilih Panel Jasteb Anda</h2>
-        <button onclick="checkPassword('https://ramadhanmoon.nicohosting.my.id/sewafaanzy1/ultimate', '12345')">Panel Sopoo</button>
-        <button onclick="checkPassword('https://example.com/page2', '67890')">Masuk ke Page 2</button>
-        <button onclick="checkPassword('https://example.com/page3', 'abcde')">Masuk ke Page 3</button>
+        <h2 id="menu-title">Pilih Panel Jasteb Anda</h2>
+        <div id="menu-buttons"></div>
     </div>
 
     <script>
-        function checkPassword(url, correctPassword) {
-            const userPassword = prompt("Masukkan password untuk mengakses halaman ini:");
+        // Konfigurasi menu
+        const menuConfig = [
+            {
+                text: "Panel Sopoo",
+                url: "https://ramadhanmoon.nicohosting.my.id/sewafaanzy1/ultimate",
+                password: "12345",
+                promptMessage: "Masukkan password untuk Panel Sopoo",
+                successMessage: "Password benar! Anda akan diarahkan ke Panel Sopoo.",
+                errorMessage: "Password salah! Silakan coba lagi."
+            },
+            {
+                text: "Masuk ke Page 2",
+                url: "https://example.com/page2",
+                password: "67890",
+                promptMessage: "Masukkan password untuk Page 2",
+                successMessage: "Password benar! Anda akan diarahkan ke Page 2.",
+                errorMessage: "Password salah! Silakan coba lagi."
+            },
+            {
+                text: "Masuk ke Page 3",
+                url: "https://example.com/page3",
+                password: "abcde",
+                promptMessage: "Masukkan password untuk Page 3",
+                successMessage: "Password benar! Anda akan diarahkan ke Page 3.",
+                errorMessage: "Password salah! Silakan coba lagi."
+            }
+        ];
 
-            if (userPassword === correctPassword) {
-                alert("Password benar! Anda akan diarahkan ke halaman.");
-                window.location.href = url;
+        // Memuat tombol-tombol menu secara otomatis
+        const menuButtonsContainer = document.getElementById('menu-buttons');
+
+        menuConfig.forEach(menu => {
+            const button = document.createElement('button');
+            button.textContent = menu.text;
+            button.onclick = () => checkPassword(menu);
+            menuButtonsContainer.appendChild(button);
+        });
+
+        // Fungsi untuk validasi password
+        function checkPassword(menu) {
+            const userPassword = prompt(menu.promptMessage);
+
+            if (userPassword === menu.password) {
+                alert(menu.successMessage);
+                window.location.href = menu.url;
             } else {
-                alert("Password salah! Silakan coba lagi.");
+                alert(menu.errorMessage);
             }
         }
     </script>
